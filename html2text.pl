@@ -1,6 +1,6 @@
 #!/bin/env perl -w
 
-$VERSION = '0.002';
+$VERSION = '0.003';
 
 #------------------------------------------------------------------------------
 #
@@ -47,28 +47,25 @@ List items are indented by 4 spaces, and preceded with an asterisk.
 
 =head1 PREREQUISITES
 
-    Text::Format
-    HTML::TreeBuilder
+Text::Format
+HTML::TreeBuilder
 
 =head1 OSNAMES
 
-    sunos 5.6 sun4-solaris
+any
 
 =head1 AUTHOR
 
-Ave Wrigley E<lt>wrigley@cre.canon.co.ukE<gt>
-Web Group, Canon Research Centre Europe
+Ave Wrigley E<lt>Ave.Wrigley@itn.co.ukE<gt>
 
 =head1 COPYRIGHT
-
-Copyright (c) 1998 Canon Research Centre Europe. All rights reserved.
 
 This script is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =head1 SCRIPT CATEGORIES
 
-    HTML
+Web
 
 =cut
 

@@ -6,3 +6,6 @@ Revision history for Perl script html2text.
 0.002 Tue Jan 28 12:02:17 GMT 2003
         - patch from Golda Velez [gvelez@webglimpse.net] to fix a couple of 
           bugs
+
+0.003 Tue Jan 28 12:53:40 GMT 2003
+        - updated SCRIPT CATEGORIES in the POD
