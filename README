@@ -1,0 +1,68 @@
+html2text Version 0.001
+=======================
+
+Description
+-----------
+
+html2text.pl generates simple formatted text from HTML. It uses
+HTML::Element to traverse an HTML tree built by HTML::TreeBuilder, and formats
+the output text using Text::Format. It is _very_ simple at the moment. The
+type of things it does are:
+
+* Headings
+
+    All headings are underlined. <H1>s are double underlined. Headings are
+    numbered, by using the heading levels, and previous heading levels.
+
+* Paragraphs
+
+    Paragraph text is formatted with the paragraph method of Text::Format.
+
+* Lists
+
+    List items are indented by 4 spaces, and preceded with an asterisk.
+
+* Definition Lists
+
+    <DT>s are intented by 4 spaces; <DD>s are indented by 8 spaces.
+
+It doesn't do anything clever with frames, tables, fonts, etc. Images and links
+are ignored.
+
+Installation
+------------
+
+Just the basic Makefile.PL stuff; i.e.:
+
+> perl Makefile.PL
+> make
+> make test
+> make install
+
+Usage
+-----
+
+To use html2text.pl, just type:
+
+> html2text.pl example.html
+
+or
+
+> cat example.html | html2text.pl
+
+CPAN Modules
+------------
+
+html2text.pl uses the following CPAN modules, that need to be installed before
+it will work:
+
+Text::Format
+HTML::TreeBuilder
+
+See http://www.perl.com/CPAN/ for details of how to download / install these
+modules.
+
+Bugs
+----
+
+Please send any bugs / comments / suggestions to wrigley@cre.canon.co.uk
