@@ -1,5 +1,7 @@
 #!/bin/env perl -w
 
+$VERSION = '0.002';
+
 #------------------------------------------------------------------------------
 #
 # Pod
@@ -109,12 +111,9 @@ use constant IGNORE_TEXT => 1;
 #------------------------------------------------------------------------------
 
 use vars qw(
-    $VERSION
     $html_tree
     $text_formatter
 );
-
-$VERSION = '0.001';
 
 #------------------------------------------------------------------------------
 #
@@ -123,18 +122,6 @@ $VERSION = '0.001';
 #------------------------------------------------------------------------------
 
 $|++;
-
-#------------------------------------------------------------------------------
-#
-# Usage
-#
-#------------------------------------------------------------------------------
-
-die <<USAGE unless @ARGV;
-
-usage: $0 [filename]
-
-USAGE
 
 #------------------------------------------------------------------------------
 #
@@ -162,8 +149,8 @@ my %prefix = (
 );
 
 my %underline = (
-    'h1'        => '=',
-    'h2'        => '-',
+    'h1'        => '+',
+    'h2'        => '=',
     'h3'        => '-',
     'h4'        => '-',
     'h5'        => '-',
@@ -183,6 +170,7 @@ sub get_text
     my $this = shift;
     my $text = '';
 
+    defined( $this->content ) || return( '' );
     # iterate though my children ...
     for my $child ( @{ $this->content } )
     {
@@ -238,6 +226,7 @@ sub get_paragraphs
     # avoid -w warning for .= operation on undefined
     $paras[ 0 ] = '';
 
+    defined( $this->content ) || return( @paras );
     # iterate though my children ...
     for my $child ( @{ $this->content } )
     {
@@ -307,6 +296,7 @@ sub get_paragraphs
 
 # parse the STDIN or ARGV
 
+warn "Starting $0 ...\n";
 $html_tree->parse( join( '', <> ) );
 
 # main tree traversal routine
@@ -374,7 +364,8 @@ $html_tree->traverse(
                     @heading_number[ 1 .. $level ]
                 );
                 # generate heading from number string and heading text ...
-                my $text = "$heading_number " . get_text( $node );
+                # my $text = "$heading_number " . get_text( $node );
+                my $text = get_text( $node ) . "\n";
                 # underline it with the appropriate underline character ...
                 $text =~ s{
                         (.*)

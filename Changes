@@ -2,3 +2,7 @@ Revision history for Perl script html2text.
 
 0.001 Tuesday April 13 09:40:25 BST 1999
         - original version
+
+0.002 Tue Jan 28 12:02:17 GMT 2003
+        - patch from Golda Velez [gvelez@webglimpse.net] to fix a couple of 
+          bugs
